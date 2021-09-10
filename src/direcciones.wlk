@@ -1,15 +1,15 @@
-object izquierda {
-	method proximaPosicion(posicionActual) = posicionActual.left(1) 
+object left {
+	method nextPosition(actPos) = actPos.left(1) 
 }
 
-object derecha {
-	method proximaPosicion(posicionActual) = posicionActual.right(1) 
+object right {
+	method nextPosition(actPos) = actPos.right(1) 
 }
 
-object arriba {
-	method proximaPosicion(posicionActual) = posicionActual.up(1) 
+object up {
+	method nextPosition(actPos) = actPos.up(1) 
 }
 
-object abajo {
-	method proximaPosicion(posicionActual) = posicionActual.down(1) 
+object down {
+	method nextPosition(actPos) = actPos.down(1) 
 }
