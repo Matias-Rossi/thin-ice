@@ -1,0 +1,15 @@
+//import aves.*
+import direcciones.*
+import wollok.game.*
+/*
+test "Al mover hacia una dirección pepita actualiza su posición" {
+	pepita.moverPara(derecha)
+	assert.equals(game.at(3,2), pepita.position())
+}
+
+test "Cuando pepita se mueve manolo acompaña" {
+	pepita.moverPara(derecha)
+	assert.equals(game.at(4,2), manolo.position())
+}
+
+*/

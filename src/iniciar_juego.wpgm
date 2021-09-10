@@ -1,0 +1,15 @@
+import wollok.game.*
+import nivel.*
+
+program iniciarJuego {
+	//configuro el juego
+	game.cellSize(80)
+	
+	game.height(10)
+	game.width(10)
+	
+	nivel.configuracionInicial()
+	
+	//inicio el juego
+	game.start()
+}
