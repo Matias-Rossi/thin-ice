@@ -6,4 +6,6 @@ object puffle {
     method image() {
         return "../../assets/sprites/specialItems/puff.png"
     }
+
+    
 }

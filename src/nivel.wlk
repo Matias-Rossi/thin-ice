@@ -2,6 +2,8 @@ import wollok.game.*
 import direcciones.*
 
 object nivel {
+	var nivel = 1
+
 	method configuracionInicial(){
 		game.addVisual(puffle)
 		game.addVisual(manolo)

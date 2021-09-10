@@ -3,10 +3,10 @@ import nivel.*
 
 program iniciarJuego {
 	//configuro el juego
-	game.cellSize(80)
+	game.cellSize(32)
 	
-	game.height(10)
-	game.width(10)
+	game.height(15)
+	game.width(19)
 	
 	nivel.configuracionInicial()
 	

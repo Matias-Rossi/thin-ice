@@ -3,13 +3,8 @@ import wollok.game.*
 class Tile {
     const property position
 
-}
-
-class IceTile inherits Tile {
-    const canBeSteppedOn = true
-
-    method image() {
-        return "../../assets/sprites/Tile/iceTile.png"
+    method create() {
+        game.addVisual(self)
     }
 }
 
@@ -20,6 +15,16 @@ class BackgroundTile inherits Tile {
         return "../../assets/sprites/Tile/backgroundTile.png"
     }
 }
+
+class IceTile inherits Tile {
+    const canBeSteppedOn = true
+
+    method image() {
+        return "../../assets/sprites/Tile/iceTile.png"
+    }
+
+}
+
 
 class GoalTile inherits Tile {
     const canBeSteppedOn = true
