@@ -8,12 +8,10 @@ object nivel {
 	var property nivel = level1
 
 	method configuracionInicial(){
+		game.title("Thin Ice")
 		game.addVisual(puffle)
-		nivel.loadLevel()
-		//game.addVisual(manolo)
-		//game.addVisual(arcoiris)
-		//game.onCollideDo(pepita, { elemento => pepita.interaccion(elemento) })
-		//game.onCollideDo(manolo, { elemento => manolo.interaccion(elemento) })
+		game.addVisual(moneyBag)
+		nivel.generateLevel()
 		self.configurarTeclas()
 	}
 	
@@ -30,4 +28,12 @@ object nivel {
 class Coordinates {
 	var property x;
 	var property y;	
+}
+
+object moneyBag {
+	var property position = game.at(2,2)
+	method image() {
+        return "./assets/sprites/specialItems/moneyBag.png"
+
+	}
 }

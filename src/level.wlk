@@ -9,15 +9,13 @@ class Level {
     const property bonusTile
 
     method generateLevel() {
-        self.solidTiles().forEach {solid => solid.create()}
-        self.iceTiles().forEach {ice => ice.create()}
-        self.initialTile().create()
-        self.bonusTile().create()
-        self.goalTile().create()
+        self.solidTiles().forEach {solid => solid.render()}
+        self.iceTiles().forEach {ice => ice.render()}
+        self.initialTile().render()
+        self.bonusTile().render()
+        self.goalTile().render()
     }
 
-    method loadLevel() {
-        self.generateLevel()
-    }
     //todo: implementar backgroundTiles donde no haya de otro tipo. Podría ser un PNG de background que tome toda la página
 }
+

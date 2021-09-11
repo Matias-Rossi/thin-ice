@@ -47,21 +47,21 @@ const level1 = new Level(
             type iceTile
         )
         */
-        new Tile(position = game.at(2, 4)),
-        new Tile(position = game.at(2, 5)),
-        new Tile(position = game.at(2, 6)),
-        new Tile(position = game.at(2, 7)),
-        new Tile(position = game.at(2, 8)),
-        new Tile(position = game.at(2, 9)),
-        new Tile(position = game.at(2, 10)),
-        new Tile(position = game.at(2, 11)),
-        new Tile(position = game.at(2, 12)),
-        new Tile(position = game.at(2, 13)),
-        new Tile(position = game.at(2, 14))
+        new IceTile(position = game.at(2, 4)),
+        new IceTile(position = game.at(2, 5)),
+        new IceTile(position = game.at(2, 6)),
+        new IceTile(position = game.at(2, 7)),
+        new IceTile(position = game.at(2, 8)),
+        new IceTile(position = game.at(2, 9)),
+        new IceTile(position = game.at(2, 10)),
+        new IceTile(position = game.at(2, 11)),
+        new IceTile(position = game.at(2, 12)),
+        new IceTile(position = game.at(2, 13)),
+        new IceTile(position = game.at(2, 14))
     ],
     initialTile = new Tile(position = game.at(14, 4)),
-    bonusTile = new Tile(position = game.at(-1,-1)),
-    goalTile = new Tile(position = game.at(1,4))
+    bonusTile = new BonusTile(position = game.at(1,1)),
+    goalTile = new GoalTile(position = game.at(1,4))
 )
 
 object level1Data {
@@ -80,41 +80,37 @@ object level1Data {
             type solidTile
         ),
         */
-        new Tile(position = game.at(1, 5)),
-        new Tile(position = game.at(2, 5)),
-        new Tile(position = game.at(3, 5)),
-        new Tile(position = game.at(4, 5)),
-        new Tile(position = game.at(5, 5)),
-        new Tile(position = game.at(6, 5)),
-        new Tile(position = game.at(7, 5)),
-        new Tile(position = game.at(8, 5)),
-        new Tile(position = game.at(9, 5)),
-        new Tile(position = game.at(10, 5)),
-        new Tile(position = game.at(11, 5)),
-        new Tile(position = game.at(12, 5)),
-        new Tile(position = game.at(13, 5)),
-        new Tile(position = game.at(14, 5)),
-        new Tile(position = game.at(15, 5)),
-        new Tile(position = game.at(1, 3)),
-        new Tile(position = game.at(2, 3)),
-        new Tile(position = game.at(3, 3)),
-        new Tile(position = game.at(4, 3)),
-        new Tile(position = game.at(5, 3)),
-        new Tile(position = game.at(6, 3)),
-        new Tile(position = game.at(7, 3)),
-        new Tile(position = game.at(8, 3)),
-        new Tile(position = game.at(9, 3)),
-        new Tile(position = game.at(10, 3)),
-        new Tile(position = game.at(11, 3)),
-        new Tile(position = game.at(12, 3)),
-        new Tile(position = game.at(13, 3)),
-        new Tile(position = game.at(14, 3)),
-        new Tile(position = game.at(15, 3)),
-        new Tile(
-            position = game.at(1, 4)
-        ),
-        new Tile(
-            position = game.at(15, 4)
-        )
+        new SolidTile(position = game.at(1, 5)),
+        new SolidTile(position = game.at(2, 5)),
+        new SolidTile(position = game.at(3, 5)),
+        new SolidTile(position = game.at(4, 5)),
+        new SolidTile(position = game.at(5, 5)),
+        new SolidTile(position = game.at(6, 5)),
+        new SolidTile(position = game.at(7, 5)),
+        new SolidTile(position = game.at(8, 5)),
+        new SolidTile(position = game.at(9, 5)),
+        new SolidTile(position = game.at(10, 5)),
+        new SolidTile(position = game.at(11, 5)),
+        new SolidTile(position = game.at(12, 5)),
+        new SolidTile(position = game.at(13, 5)),
+        new SolidTile(position = game.at(14, 5)),
+        new SolidTile(position = game.at(15, 5)),
+        new SolidTile(position = game.at(1, 3)),
+        new SolidTile(position = game.at(2, 3)),
+        new SolidTile(position = game.at(3, 3)),
+        new SolidTile(position = game.at(4, 3)),
+        new SolidTile(position = game.at(5, 3)),
+        new SolidTile(position = game.at(6, 3)),
+        new SolidTile(position = game.at(7, 3)),
+        new SolidTile(position = game.at(8, 3)),
+        new SolidTile(position = game.at(9, 3)),
+        new SolidTile(position = game.at(10, 3)),
+        new SolidTile(position = game.at(11, 3)),
+        new SolidTile(position = game.at(12, 3)),
+        new SolidTile(position = game.at(13, 3)),
+        new SolidTile(position = game.at(14, 3)),
+        new SolidTile(position = game.at(15, 3)),
+        new SolidTile(position = game.at(1, 4)),
+        new SolidTile(position = game.at(15, 4))
     ]
 }

@@ -3,7 +3,7 @@ import wollok.game.*
 class Tile {
     const property position
 
-    method create() {
+    method render() {
         game.addVisual(self)
     }
 }
@@ -35,6 +35,7 @@ class BackgroundTile inherits Tile {
     method image() {
         return "./assets/sprites/Tile/backgroundTile.png"
     }
+
 }
 
 class IceTile inherits Tile {
@@ -73,3 +74,11 @@ class WaterTile inherits Tile {
 
 }
 
+class BonusTile inherits Tile {
+    var property pickedUp = false
+
+    method image() {
+        return "./assets/sprites/specialItems/moneyBag.png"
+    }
+
+}
