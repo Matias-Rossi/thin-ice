@@ -5,13 +5,14 @@ import level.*
 import level1.*
 
 object nivel {
-	var property nivel = level1
+	var property currentLevel = level1
 
 	method configuracionInicial(){
 		game.title("Thin Ice")
-		nivel.generateLevel()
-		game.addVisual(puffle)
+		currentLevel.generateLevel()
 		self.configurarTeclas()
+
+		game.onCollideDo(puffle, {objeto => puffle.completarNivel(objeto)})
 	}
 	
 	method configurarTeclas(){
@@ -20,6 +21,7 @@ object nivel {
 		keyboard.up().onPressDo({ puffle.move(up) })
 		keyboard.down().onPressDo({ puffle.move(down) })
 	
+		keyboard.r().onPressDo({currentLevel.reset()})
 	}
 	
 }

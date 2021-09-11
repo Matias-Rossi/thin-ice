@@ -1,4 +1,6 @@
 import wollok.game.*
+import puffle.*
+import nivel.*
 //import level1.*
 
 class Level {
@@ -14,6 +16,13 @@ class Level {
         self.initialTile().render()
         self.bonusTile().render()
         self.goalTile().render()
+        game.addVisual(puffle)
+    }
+
+    method reset() {
+        game.clear()
+        nivel.configuracionInicial()
+        puffle.position(initialTile.position())
     }
 
     //todo: implementar backgroundTiles donde no haya de otro tipo. Podría ser un PNG de background que tome toda la página

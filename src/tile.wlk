@@ -2,9 +2,14 @@ import wollok.game.*
 
 class Tile {
     const property position
+    const property isTile = true
 
     method render() {
         game.addVisual(self)
+    }
+
+    method setWater() {
+
     }
 }
 /*
@@ -30,7 +35,7 @@ class Wall {
 }
 */
 class BackgroundTile inherits Tile {
-    const canBeSteppedOn = false
+    const property canBeSteppedOn = false
 
     method image() {
         return "./assets/sprites/Tile/backgroundTile.png"
@@ -39,17 +44,22 @@ class BackgroundTile inherits Tile {
 }
 
 class IceTile inherits Tile {
-    const canBeSteppedOn = true
+    const property canBeSteppedOn = true
 
     method image() {
         return "./assets/sprites/Tile/iceTile.png"
+    }
+
+    override method setWater() {
+        game.removeVisual(self)
+        game.addVisual(new WaterTile(position = game.at(position.x(), position.y())))
     }
 
 }
 
 
 class GoalTile inherits Tile {
-    const canBeSteppedOn = true
+    const property canBeSteppedOn = true
 
     method image() {
         return "./assets/sprites/Tile/goal.png"
@@ -57,7 +67,7 @@ class GoalTile inherits Tile {
 }
 
 class SolidTile inherits Tile {
-    const canBeSteppedOn = false
+    const property canBeSteppedOn = false
 
     method image() {
         return "./assets/sprites/Tile/solidTile.png"
@@ -66,7 +76,7 @@ class SolidTile inherits Tile {
 }
 
 class WaterTile inherits Tile {
-    const canBeSteppedOn = false
+    const property canBeSteppedOn = false
 
     method image() {
         return "./assets/sprites/Tile/waterTile.png"
