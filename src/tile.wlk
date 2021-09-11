@@ -85,10 +85,11 @@ class WaterTile inherits Tile {
 }
 
 class BonusTile inherits Tile {
+    const property canBeSteppedOn = true
     var property pickedUp = false
 
     method image() {
         return "./assets/sprites/specialItems/moneyBag.png"
     }
-
+    //todo: implementar bonus
 }
