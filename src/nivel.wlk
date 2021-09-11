@@ -39,8 +39,4 @@ object nivel {
 	
 }
 
-class Coordinates {
-	var property x;
-	var property y;	
-}
 

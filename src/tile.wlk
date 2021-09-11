@@ -12,28 +12,30 @@ class Tile {
 
     }
 }
-/*
+
 class Wall {
     const property start
     const property end
     const property orientation  //Se podría hacer analizar automáticamente, en vez de tener que ponerlo como entrada
-    const property type
+    //const property type
 
-    method create() {
+    /*
+    method render() {
         if(orientation == "x") {
-            const xRange = ((self.start().x())..(self.end().x()));
-            var tiles = xRange.map(xCoord => {return type(position = game.at(xCoord, self.start(y)))});
-            tiles.forEach(tile => {tile.create()});
+            const xRange = ((start.x()) .. (end.x()))
+            const tiles = xRange.map({xCoord => return new (position = game.at(xCoord, start.y()))})
+            tiles.forEach({tile => tile.render()})
 
         } else if(orientation == "y") {
-            const yRange = ((self.start().y()) .. (self.end().y()));
-            var tiles = yRange.map(yCoord => {return type(position = game.at(self.start(x), yCoord))});
-            tiles.forEach(tile => {tile.create()});
+            const yRange = ((start.y()) .. (end.y()))
+            const tiles = yRange.map({yCoord => return new type(position = game.at(start.x(), yCoord))})
+            tiles.forEach({tile => tile.render()})
 
         }
     }
+    */
 }
-*/
+
 class BackgroundTile inherits Tile {
     const property canBeSteppedOn = false
     const property isDouble = false
@@ -59,6 +61,24 @@ class IceTile inherits Tile {
 
 }
 
+class IceWall inherits Wall {
+
+    method render() {
+        if(orientation == "x") {
+            const xRange = ((start.x()) .. (end.x()))
+            const tiles = xRange.map({xCoord => return new IceTile(position = game.at(xCoord, start.y()))})
+            tiles.forEach({tile => tile.render()})
+
+        } else if(orientation == "y") {
+            const yRange = ((start.y()) .. (end.y()))
+            const tiles = yRange.map({yCoord => return new IceTile(position = game.at(start.x(), yCoord))})
+            tiles.forEach({tile => tile.render()})
+
+        }
+    }
+
+}
+
 
 class GoalTile inherits Tile {
     const property canBeSteppedOn = true
@@ -75,6 +95,24 @@ class SolidTile inherits Tile {
 
     method image() {
         return "./assets/sprites/Tile/solidTile.png"
+    }
+
+}
+
+class SolidWall inherits Wall {
+
+    method render() {
+        if(orientation == "x") {
+            const xRange = ((start.x()) .. (end.x()))
+            const tiles = xRange.map({xCoord => return new SolidTile(position = game.at(xCoord, start.y()))})
+            tiles.forEach({tile => tile.render()})
+
+        } else if(orientation == "y") {
+            const yRange = ((start.y()) .. (end.y()))
+            const tiles = yRange.map({yCoord => return new SolidTile(position = game.at(start.x(), yCoord))})
+            tiles.forEach({tile => tile.render()})
+
+        }
     }
 
 }
@@ -116,3 +154,8 @@ class DoubleTile inherits Tile {
 
 }
 
+
+class Coordinates {
+	var property x;
+	var property y;	
+}

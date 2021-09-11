@@ -67,18 +67,19 @@ const level1 = new Level(
     initialTile = new Tile(position = game.at(14, 4)),
     bonusTile = new BonusTile(position = game.at(-1,-1)),
     goalTile = new GoalTile(position = game.at(2,4)),
-    nextLevel = level7
+    nextLevel = level2
 )
 
 object level1Data {
     const property solidTiles = [
-        /*
-        new Wall(
-            start = Coordinates(x = 1, y = 5),
-            end = Coordinates(x = 15, y = 5),
-            orientation("x"),
-            type solidTile
+        
+        new SolidWall(
+            start = new Coordinates(x = 1, y = 5),
+            end = new Coordinates(x = 15, y = 5),
+            orientation = "x"
+
         ),
+        /*
         new Wall(
             start = Coordinates(x = 1, y = 3),
             end = Coordinates(x = 15, y = 3),
@@ -86,6 +87,7 @@ object level1Data {
             type solidTile
         ),
         */
+        /*
         new SolidTile(position = game.at(1, 5)),
         new SolidTile(position = game.at(2, 5)),
         new SolidTile(position = game.at(3, 5)),
@@ -101,6 +103,7 @@ object level1Data {
         new SolidTile(position = game.at(13, 5)),
         new SolidTile(position = game.at(14, 5)),
         new SolidTile(position = game.at(15, 5)),
+        */
         new SolidTile(position = game.at(1, 3)),
         new SolidTile(position = game.at(2, 3)),
         new SolidTile(position = game.at(3, 3)),
