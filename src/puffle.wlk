@@ -26,6 +26,8 @@ object puffle {
     method completarNivel(_objeto) {
         if(position == nivel.currentLevel().goalTile().position()) {
             game.say(self, "Nivel completado")
+            nivel.currentLevel(nivel.currentLevel().nextLevel())
+            nivel.currentLevel().reset()
         }
     }
 
