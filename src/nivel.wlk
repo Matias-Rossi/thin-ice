@@ -10,7 +10,6 @@ object nivel {
 	method configuracionInicial(){
 		game.title("Thin Ice")
 		game.addVisual(puffle)
-		game.addVisual(moneyBag)
 		nivel.generateLevel()
 		self.configurarTeclas()
 	}
@@ -30,9 +29,3 @@ class Coordinates {
 	var property y;	
 }
 
-object moneyBag {
-	method image() {
-        return "./assets/sprites/specialItems/moneyBag.png"
-
-	}
-}
