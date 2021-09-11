@@ -15,7 +15,7 @@ class Level {
     method generateLevel() {
         self.solidTiles().forEach {solid => solid.render()}
         self.iceTiles().forEach {ice => ice.render()}
-        self.initialTile().render()
+        //self.initialTile().render()
         self.bonusTile().render()
         self.goalTile().render()
         game.addVisual(puffle)

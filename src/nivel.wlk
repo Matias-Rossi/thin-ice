@@ -25,6 +25,7 @@ object nivel {
 	
 		keyboard.r().onPressDo({currentLevel.reset()})
 		keyboard.s().onPressDo({self.startOST()})
+		keyboard.c().onPressDo({puffle.alternarCarpincho()})
 	}
 
 	method startOST() {

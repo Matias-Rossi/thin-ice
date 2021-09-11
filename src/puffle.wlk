@@ -6,9 +6,14 @@ import tile.*
 
 object puffle {
     var property position = game.at(14,4) //nivel().initialTile() /*todo: implementar posicion inicial*/
+    var property useCarpincho = false
 
     method image() {
-        return "./assets/sprites/specialItems/puff.png"
+        if(!useCarpincho){
+            return "./assets/sprites/specialItems/puff.png"
+        } else {
+            return "./assets/sprites/specialItems/carpincho.png"
+        }
     }
 
     method move(direction) {
@@ -19,6 +24,14 @@ object puffle {
             position = direction.nextPosition(position) 
         }
         //else { hacer algun sonido} //todo:
+    }
+
+    method alternarCarpincho() {
+        if(useCarpincho) {
+            useCarpincho = false
+        } else {
+            useCarpincho = true
+        }
     }
 
     method setWater() {}
