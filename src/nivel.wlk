@@ -31,7 +31,6 @@ class Coordinates {
 }
 
 object moneyBag {
-	var property position = game.at(2,2)
 	method image() {
         return "./assets/sprites/specialItems/moneyBag.png"
 

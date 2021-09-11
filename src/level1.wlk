@@ -47,21 +47,21 @@ const level1 = new Level(
             type iceTile
         )
         */
-        new IceTile(position = game.at(2, 4)),
-        new IceTile(position = game.at(2, 5)),
-        new IceTile(position = game.at(2, 6)),
-        new IceTile(position = game.at(2, 7)),
-        new IceTile(position = game.at(2, 8)),
-        new IceTile(position = game.at(2, 9)),
-        new IceTile(position = game.at(2, 10)),
-        new IceTile(position = game.at(2, 11)),
-        new IceTile(position = game.at(2, 12)),
-        new IceTile(position = game.at(2, 13)),
-        new IceTile(position = game.at(2, 14))
+        new IceTile(position = game.at(3, 4)),
+        new IceTile(position = game.at(4, 4)),
+        new IceTile(position = game.at(5, 4)),
+        new IceTile(position = game.at(6, 4)),
+        new IceTile(position = game.at(7, 4)),
+        new IceTile(position = game.at(8, 4)),
+        new IceTile(position = game.at(9, 4)),
+        new IceTile(position = game.at(10, 4)),
+        new IceTile(position = game.at(11, 4)),
+        new IceTile(position = game.at(12, 4)),
+        new IceTile(position = game.at(13, 4))
     ],
     initialTile = new Tile(position = game.at(14, 4)),
-    bonusTile = new BonusTile(position = game.at(1,1)),
-    goalTile = new GoalTile(position = game.at(1,4))
+    bonusTile = new BonusTile(position = game.at(-1,-1)),
+    goalTile = new GoalTile(position = game.at(2,4))
 )
 
 object level1Data {
