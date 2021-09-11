@@ -13,7 +13,8 @@ object nivel {
 		self.configurarTeclas()
 
 
-		game.onCollideDo(puffle, {objeto => puffle.completarNivel(objeto)})
+		game.onCollideDo(puffle, {_object => puffle.completeLevel(_object)})
+		//game.onCollideDo(puffle, {_object => puffle.activateDouble(_object)})
 		
 	}
 	

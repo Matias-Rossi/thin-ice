@@ -36,6 +36,7 @@ class Wall {
 */
 class BackgroundTile inherits Tile {
     const property canBeSteppedOn = false
+    const property isDouble = false
 
     method image() {
         return "./assets/sprites/Tile/backgroundTile.png"
@@ -45,6 +46,7 @@ class BackgroundTile inherits Tile {
 
 class IceTile inherits Tile {
     const property canBeSteppedOn = true
+    const property isDouble = false
 
     method image() {
         return "./assets/sprites/Tile/iceTile.png"
@@ -60,6 +62,7 @@ class IceTile inherits Tile {
 
 class GoalTile inherits Tile {
     const property canBeSteppedOn = true
+    const property isDouble = false
 
     method image() {
         return "./assets/sprites/Tile/goal.png"
@@ -68,6 +71,7 @@ class GoalTile inherits Tile {
 
 class SolidTile inherits Tile {
     const property canBeSteppedOn = false
+    const property isDouble = false
 
     method image() {
         return "./assets/sprites/Tile/solidTile.png"
@@ -87,9 +91,28 @@ class WaterTile inherits Tile {
 class BonusTile inherits Tile {
     const property canBeSteppedOn = true
     var property pickedUp = false
+    const property isDouble = false
 
     method image() {
         return "./assets/sprites/specialItems/moneyBag.png"
     }
     //todo: implementar bonus
 }
+
+class DoubleTile inherits Tile {
+    const property canBeSteppedOn = true
+    const property isDouble = true
+    
+    method image() {
+        return "./assets/sprites/Tile/doubleTile.png"
+    }
+
+    override method setWater() {
+        game.removeVisual(self)
+        const iceTile = new IceTile(position = position)
+        game.addVisual(iceTile)
+    }
+
+
+}
+

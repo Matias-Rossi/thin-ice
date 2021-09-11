@@ -36,11 +36,16 @@ object puffle {
 
     method setWater() {}
 
-    method completarNivel(_objeto) {
+    method completeLevel(_objeto) {
         if(position == nivel.currentLevel().goalTile().position()) {
-            game.say(self, "Nivel completado")
             nivel.currentLevel(nivel.currentLevel().nextLevel())
             nivel.currentLevel().reset()
+        }
+    }
+
+    method activateDouble(_object) {
+        if(_object == _object.isDouble()) {
+            _object.turnIntoIce()
         }
     }
 

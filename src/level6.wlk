@@ -86,7 +86,7 @@ const level6 = new Level(
         new IceTile(position = game.at(6, 4)),
         new IceTile(position = game.at(6, 5)),
         new IceTile(position = game.at(7, 2)),
-        new IceTile(position = game.at(7, 3)),
+        //new IceTile(position = game.at(7, 3)),
         new IceTile(position = game.at(7, 4)),
         new IceTile(position = game.at(7, 5)),
         new IceTile(position = game.at(8, 2)),
@@ -118,6 +118,7 @@ const level6 = new Level(
         new IceTile(position = game.at(16, 5))
         
     ],
+    doubleTiles = [ new DoubleTile(position = game.at(7,3))],
     initialTile = new Tile(position = game.at(2, 4)),
     bonusTile = new BonusTile(position = game.at(10, 3)),
     goalTile = new GoalTile(position = game.at(14, 7)),

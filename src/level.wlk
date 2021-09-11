@@ -6,6 +6,7 @@ import nivel.*
 class Level {
     const property solidTiles
     const property iceTiles
+    const property doubleTiles
     const property initialTile
     const property goalTile
     const property bonusTile
@@ -13,8 +14,9 @@ class Level {
     const property nextLevel
 
     method generateLevel() {
-        self.solidTiles().forEach {solid => solid.render()}
+        self.solidTiles().forEach {solid => solid.render()} //se podria hacer solidTiles.forEach (etc) ?
         self.iceTiles().forEach {ice => ice.render()}
+        self.doubleTiles().forEach {double => double.render()}
         //self.initialTile().render()
         self.bonusTile().render()
         self.goalTile().render()

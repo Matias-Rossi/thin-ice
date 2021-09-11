@@ -146,6 +146,7 @@ const level4 = new Level(
         new IceTile(position = game.at(15, 12))
         
     ],
+    doubleTiles = [],
     initialTile = new Tile(position = game.at(3, 7)),
     bonusTile = new BonusTile(position = game.at(7, 7)),
     goalTile = new GoalTile(position = game.at(14, 7)),
