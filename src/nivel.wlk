@@ -9,8 +9,8 @@ object nivel {
 
 	method configuracionInicial(){
 		game.title("Thin Ice")
-		game.addVisual(puffle)
 		nivel.generateLevel()
+		game.addVisual(puffle)
 		self.configurarTeclas()
 	}
 	
