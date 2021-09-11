@@ -10,6 +10,8 @@ class Level {
     const property goalTile
     const property bonusTile
 
+    const property nextLevel
+
     method generateLevel() {
         self.solidTiles().forEach {solid => solid.render()}
         self.iceTiles().forEach {ice => ice.render()}

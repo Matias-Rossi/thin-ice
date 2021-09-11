@@ -12,7 +12,9 @@ object nivel {
 		currentLevel.generateLevel()
 		self.configurarTeclas()
 
+
 		game.onCollideDo(puffle, {objeto => puffle.completarNivel(objeto)})
+		
 	}
 	
 	method configurarTeclas(){
@@ -22,6 +24,15 @@ object nivel {
 		keyboard.down().onPressDo({ puffle.move(down) })
 	
 		keyboard.r().onPressDo({currentLevel.reset()})
+		keyboard.s().onPressDo({self.startOST()})
+	}
+
+	method startOST() {
+		const soundtrack = game.sound("./assets/audio/thin_ice_OST.mp3")
+		soundtrack.initialize()
+		soundtrack.play()
+		soundtrack.shouldLoop(true)
+		
 	}
 	
 }

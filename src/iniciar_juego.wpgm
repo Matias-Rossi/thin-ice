@@ -7,9 +7,14 @@ program iniciarJuego {
 	
 	game.height(15)
 	game.width(19)
+
+	game.boardGround("./assets/sprites/Tile/backgroundFull.png")
+
 	
 	nivel.configuracionInicial()
 	
 	//inicio el juego
 	game.start()
+	game.schedule(0,{ => nivel.startOST()})
+
 }
