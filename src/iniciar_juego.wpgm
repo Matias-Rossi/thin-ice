@@ -15,5 +15,6 @@ program iniciarJuego {
 	
 	//inicio el juego
 	game.start()
+	game.schedule(0,{ => nivel.startOST()})
 
 }

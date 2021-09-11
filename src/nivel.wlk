@@ -14,7 +14,7 @@ object nivel {
 
 
 		game.onCollideDo(puffle, {objeto => puffle.completarNivel(objeto)})
-		game.schedule(0,{ => self.startOST()})
+		
 	}
 	
 	method configurarTeclas(){
@@ -24,6 +24,7 @@ object nivel {
 		keyboard.down().onPressDo({ puffle.move(down) })
 	
 		keyboard.r().onPressDo({currentLevel.reset()})
+		keyboard.s().onPressDo({self.startOST()})
 	}
 
 	method startOST() {
@@ -31,6 +32,7 @@ object nivel {
 		soundtrack.initialize()
 		soundtrack.play()
 		soundtrack.shouldLoop(true)
+		
 	}
 	
 }
