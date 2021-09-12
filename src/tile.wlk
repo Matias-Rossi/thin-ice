@@ -1,4 +1,5 @@
 import wollok.game.*
+import puffle.*
 
 class Tile {
     const property position
@@ -164,6 +165,7 @@ class DoubleTile inherits Tile {
         game.removeVisual(self)
         const iceTile = new IceTile(position = position)
         game.addVisual(iceTile)
+        puffle.redraw()
     }
 
 

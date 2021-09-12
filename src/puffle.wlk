@@ -51,6 +51,7 @@ object puffle {
     method activateDouble(_object) {
         if(_object.description() == "double") {
             _object.turnIntoIce()
+            self.redraw()
         }
     }
 
@@ -61,6 +62,11 @@ object puffle {
         else if(_object.description() == "bonus") {
             //todo: pending points implementation
         }
+    }
+
+    method redraw() {
+        game.removeVisual(self)
+        game.addVisual(self)
     }
     
 }
