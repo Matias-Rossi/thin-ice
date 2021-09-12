@@ -57,9 +57,11 @@ object puffle {
 
     method pickObject(_object) {
         if(_object.description() == "key") {
+            game.removeVisual(_object)
             nivel.currentLevel().unlock()
         }
         else if(_object.description() == "bonus") {
+            _object.pickBonus()
             //todo: pending points implementation
         }
     }

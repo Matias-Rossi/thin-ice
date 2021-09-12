@@ -149,7 +149,12 @@ class BonusTile inherits Tile {
     method image() {
         return "./assets/sprites/specialItems/moneyBag.png"
     }
-    //todo: implementar bonus
+
+    method pickBonus() {
+        game.removeVisual(self)
+        //todo: implementar bonus (puntos)
+
+    }
 }
 
 class DoubleTile inherits Tile {
@@ -172,6 +177,7 @@ class DoubleTile inherits Tile {
 }
 
 class LockTile inherits Tile {
+    const property canBeSteppedOn = false
     var property locked = true  //potentially unused
     const property description = "lock"
 
