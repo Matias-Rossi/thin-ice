@@ -7,6 +7,7 @@ import tile.*
 object puffle {
     var property position = game.at(14,4) //nivel().initialTile() /*todo: implementar posicion inicial*/
     var property useCarpincho = false
+    var property hasKey = false
 
     method image() {
         if(!useCarpincho){
@@ -22,6 +23,10 @@ object puffle {
             const colliders = game.getObjectsIn(position)
             colliders.forEach({tile => tile.setWater()})
             position = direction.nextPosition(position) 
+        }
+        if(game.getObjectsIn(direction.nextPosition(position)).all({tile => tile.description() == "lock"}) && hasKey) {
+            const colliders = game.getObjectsIn(direction.nextPosition(position))
+            colliders.forEach({tile => tile.setWater()})
         }
         //else { hacer algun sonido} //todo:
     }
@@ -44,10 +49,13 @@ object puffle {
     }
 
     method activateDouble(_object) {
-        if(_object == _object.isDouble()) {
+        if(_object.description() == "double") {
             _object.turnIntoIce()
         }
     }
 
+    method pickObject(_object) {
+        
+    }
     
 }
