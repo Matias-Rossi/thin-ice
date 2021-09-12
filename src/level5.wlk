@@ -118,6 +118,9 @@ const level5 = new Level(
     initialTile = new Tile(position = game.at(14, 7)),
     bonusTile = new BonusTile(position = game.at(9, 4)),
     goalTile = new GoalTile(position = game.at(2, 4)),
-    nextLevel = level6
+    nextLevel = level6,
+
+    lockTiles = [],
+    keyTile = new KeyTile(position = game.at(-1, -1))
 )
 

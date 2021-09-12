@@ -191,7 +191,7 @@ class KeyTile inherits Tile {
     const property description = "key"
     
     method image() {
-        return "./assets/sprites/specialItems/keyTile.png"
+        return "./assets/sprites/specialItems/key.png"
     }
 }
 

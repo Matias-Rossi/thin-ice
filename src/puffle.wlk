@@ -55,7 +55,12 @@ object puffle {
     }
 
     method pickObject(_object) {
-        
+        if(_object.description() == "key") {
+            nivel.currentLevel().unlock()
+        }
+        else if(_object.description() == "bonus") {
+            //todo: pending points implementation
+        }
     }
     
 }
