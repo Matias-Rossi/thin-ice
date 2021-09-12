@@ -1,4 +1,4 @@
-# thin-ice
+# Thin Ice (Wollok remake)
 
 ## What's this?
 
