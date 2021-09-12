@@ -1,7 +1,7 @@
 import wollok.game.*
 import level.*
 import tile.*
-import level1.* 
+import level11.* 
 //temp
 
 const level10 = new Level(
@@ -216,6 +216,6 @@ const level10 = new Level(
     initialTile = new Tile(position = game.at(9, 9)),
     bonusTile = new BonusTile(position = game.at(14, 9)),
     goalTile = new GoalTile(position = game.at(15, 3)),
-    nextLevel = level1
+    nextLevel = level11
 )
 
