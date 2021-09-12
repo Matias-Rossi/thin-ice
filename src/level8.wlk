@@ -1,7 +1,7 @@
 import wollok.game.*
 import level.*
 import tile.*
-import level1.* 
+import level9.* 
 //temp
 
 const level8 = new Level(
@@ -102,6 +102,7 @@ const level8 = new Level(
         new SolidTile(position = game.at(8, 4)),
         new SolidTile(position = game.at(8, 6)),
         new SolidTile(position = game.at(8, 7)),
+        new SolidTile(position = game.at(8, 9)),
 
         new SolidTile(position = game.at(10, 4)),
         new SolidTile(position = game.at(10, 9)),
@@ -174,7 +175,6 @@ const level8 = new Level(
         new IceTile(position = game.at(7, 8)),
         new IceTile(position = game.at(8, 5)),
         new IceTile(position = game.at(8, 8)),
-        new IceTile(position = game.at(8, 9)),
         new IceTile(position = game.at(9, 4)),
         new IceTile(position = game.at(9, 6)),
         new IceTile(position = game.at(9, 7)),
@@ -192,7 +192,6 @@ const level8 = new Level(
         new IceTile(position = game.at(14, 6)),
         new IceTile(position = game.at(15, 2)),
         new IceTile(position = game.at(15, 3))
-        
     ],
     doubleTiles = [ 
         new DoubleTile(position = game.at(3, 8)),
@@ -200,11 +199,10 @@ const level8 = new Level(
         new DoubleTile(position = game.at(6, 8)),
         new DoubleTile(position = game.at(9, 5)),
         new DoubleTile(position = game.at(9, 8))
-
     ],
     initialTile = new Tile(position = game.at(6, 9)),
     bonusTile = new BonusTile(position = game.at(2, 4)),
     goalTile = new GoalTile(position = game.at(14, 7)),
-    nextLevel = level1
+    nextLevel = level9
 )
 
