@@ -22,8 +22,8 @@ class Level {
     const property nextLevel
 
     method generateLevel() {
-        self.solidTiles().forEach {solid => solid.render()} //se podria hacer solidTiles.forEach (etc) ?
         self.iceTiles().forEach {ice => ice.render()}
+        self.solidTiles().forEach {solid => solid.render()} //se podria hacer solidTiles.forEach (etc) ?
         self.doubleTiles().forEach {double => double.render()}
         self.lockTiles().forEach {lock => lock.render()}
         plateTile.render()
