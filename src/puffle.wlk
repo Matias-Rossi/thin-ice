@@ -31,9 +31,12 @@ object puffle {
         }
 
         if(objectsInNextPosition.any({tile => tile.description() == "moveable"})) {
-            const moveable = objectsInNextPosition.find({tile => tile.description() == "moveable"})
-            moveable.push(direction)
-            self.move(direction)
+            //Check if moveable has clear way
+            if(game.getObjectsIn(direction.nextPosition(direction.nextPosition(position))).all({tile => tile.canBeSteppedOn()})){ //todo: emprolijar
+                const moveable = objectsInNextPosition.find({tile => tile.description() == "moveable"})
+                moveable.push(direction)
+                self.move(direction)
+            }
         }
 
         if(objectsInNextPosition.any({tile => tile.description() == "portal"})) {

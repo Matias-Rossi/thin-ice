@@ -230,8 +230,16 @@ class MoveableTile {
     }
 
     method push(direction){
+        const nextTile = game.getObjectsIn(direction.nextPosition(position))
+
         self.redraw()
-        if(game.getObjectsIn(direction.nextPosition(position)).all({tile => tile.canBeSteppedOn()})) {
+        if(nextTile.all({tile => tile.canBeSteppedOn()})) {
+            if(nextTile.any({tile => tile.description() == "portal"})) {
+                const portal = nextTile.find({tile => tile.description() == "portal"})
+                position = portal.teleportTo()
+                game.schedule(75, {=> self.push(direction)})
+            }
+            
             position = direction.nextPosition(position)
             game.schedule(75, {=> self.push(direction)})
         }
@@ -240,7 +248,6 @@ class MoveableTile {
             game.getObjectsIn(position).find({_object => _object.description() == "plate"}).active(true)
             nivel.currentLevel().plateIsPressed(true)
             nivel.currentLevel().unlock()
-
         }
     }
 
