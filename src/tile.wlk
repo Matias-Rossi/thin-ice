@@ -1,5 +1,6 @@
 import wollok.game.*
 import puffle.*
+import nivel.*
 
 class Tile {
     const property position
@@ -19,22 +20,6 @@ class Wall {
     const property end
     const property orientation  //Se podría hacer analizar automáticamente, en vez de tener que ponerlo como entrada
     //const property type
-
-    /*
-    method render() {
-        if(orientation == "x") {
-            const xRange = ((start.x()) .. (end.x()))
-            const tiles = xRange.map({xCoord => return new (position = game.at(xCoord, start.y()))})
-            tiles.forEach({tile => tile.render()})
-
-        } else if(orientation == "y") {
-            const yRange = ((start.y()) .. (end.y()))
-            const tiles = yRange.map({yCoord => return new type(position = game.at(start.x(), yCoord))})
-            tiles.forEach({tile => tile.render()})
-
-        }
-    }
-    */
 }
 
 class BackgroundTile inherits Tile {
@@ -188,18 +173,83 @@ class LockTile inherits Tile {
     }
 
     override method setWater() {
-        game.removeVisual(self)
-        const iceTile = new IceTile(position = position)
-        game.addVisual(iceTile)
+        if(game.hasVisual(self)){
+            game.removeVisual(self)
+            const iceTile = new IceTile(position = position)
+            game.addVisual(iceTile)
+        }
+    }
+
+    method lock() {
+
     }
 }
 
 class KeyTile inherits Tile {
     const property canBeSteppedOn = true
+    var property pickedUp = false
     const property description = "key"
     
     method image() {
         return "./assets/sprites/specialItems/key.png"
+    }
+}
+
+class MoveableTile {
+    const property canBeSteppedOn = false
+    const property description = "moveable"
+    const property initialPos
+    var property position = initialPos
+    const property isTile = true
+
+    method render() {
+        position = initialPos
+        game.addVisual(self)
+    }
+
+    method setWater() {
+
+    }
+
+
+    method image() {
+        return "./assets/sprites/Tile/moveableTile.png"
+    }
+
+    method push(direction){
+        if(game.getObjectsIn(direction.nextPosition(position)).all({tile => tile.canBeSteppedOn()})) {
+            position = direction.nextPosition(position)
+            game.schedule(75, {=> self.push(direction)})
+        }
+
+        if(game.getObjectsIn(position).any({_object => _object.description() == "plate"})) {
+            game.getObjectsIn(position).find({_object => _object.description() == "plate"}).active(true)
+            nivel.currentLevel().plateIsPressed(true)
+            nivel.currentLevel().unlock()
+
+        }
+    }
+}
+
+class PlateTile inherits Tile {
+    const property canBeSteppedOn = true
+    var property active = false
+    const property description = "plate"
+
+
+    method image() {
+        return "./assets/sprites/Tile/pressurePlate.png"
+    }
+
+}
+
+class PortalTile inherits Tile {
+    const property canBeSteppedOn = true
+    const property description = true
+    const property teleportTo
+
+    method image() {
+        return "./assets/sprites/Tile/moveableTile.png" //todo: fix
     }
 }
 

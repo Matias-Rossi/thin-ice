@@ -185,7 +185,14 @@ const level9 = new Level(
     goalTile = new GoalTile(position = game.at(9, 9)),
     nextLevel = level10,
 
+    //Unused
     lockTiles = [],
-    keyTile = new KeyTile(position = game.at(-1, -1))
+    keyTile = new KeyTile(position = game.at(-1, -1)),
+    moveableTile = new MoveableTile(initialPos = game.at(-1, -1)),
+    plateTile = new PlateTile(position = game.at(-1, -1)),
+    portalTileA = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
+    portalTileB = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
+    doesntRequirePlate = true,
+    plateIsPressed = true
 )
 

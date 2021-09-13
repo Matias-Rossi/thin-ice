@@ -1,7 +1,7 @@
 import wollok.game.*
 import level.*
 import tile.*
-import level1.* 
+import level12.* 
 //temp
 
 const level11 = new Level(
@@ -246,7 +246,8 @@ const level11 = new Level(
         new IceTile(position = game.at(15, 12)),
         new IceTile(position = game.at(16, 9)),
         new IceTile(position = game.at(16, 11)),
-        new IceTile(position = game.at(17, 9))
+        new IceTile(position = game.at(17, 9)),
+        new IceTile(position = game.at(15, 3))
         
 
     ],
@@ -286,6 +287,14 @@ const level11 = new Level(
     initialTile = new Tile(position = game.at(15, 3)),
     bonusTile = new BonusTile(position = game.at(8, 1)),
     goalTile = new GoalTile(position = game.at(15, 13)),
-    nextLevel = level1
+    nextLevel = level12,
+
+    //unused
+    moveableTile = new MoveableTile(initialPos = game.at(-1, -1)),
+    plateTile = new PlateTile(position = game.at(-1, -1)),
+    portalTileA = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
+    portalTileB = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
+    doesntRequirePlate = true,
+    plateIsPressed = true
 )
 

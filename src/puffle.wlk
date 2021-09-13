@@ -18,15 +18,21 @@ object puffle {
     }
 
     method move(direction) {
+        const objectsInNextPosition = game.getObjectsIn(direction.nextPosition(position))
 
-        if(game.getObjectsIn(direction.nextPosition(position)).all({tile => tile.canBeSteppedOn()})){
+        if(objectsInNextPosition.all({tile => tile.canBeSteppedOn()})){
             const colliders = game.getObjectsIn(position)
             colliders.forEach({tile => tile.setWater()})
             position = direction.nextPosition(position) 
         }
-        if(game.getObjectsIn(direction.nextPosition(position)).all({tile => tile.description() == "lock"}) && hasKey) {
+        if(objectsInNextPosition.all({tile => tile.description() == "lock"}) && hasKey) {
             const colliders = game.getObjectsIn(direction.nextPosition(position))
             colliders.forEach({tile => tile.setWater()})
+        }
+
+        if(objectsInNextPosition.any({tile => tile.description() == "moveable"})) {
+            const moveable = objectsInNextPosition.find({tile => tile.description() == "moveable"})
+            moveable.push(direction)
         }
         //else { hacer algun sonido} //todo:
     }
@@ -58,6 +64,7 @@ object puffle {
     method pickObject(_object) {
         if(_object.description() == "key") {
             game.removeVisual(_object)
+            _object.pickedUp(true)
             nivel.currentLevel().unlock()
         }
         else if(_object.description() == "bonus") {
