@@ -45,7 +45,7 @@ class Level {
 
     method unlock() {
         if(plateIsPressed && (keyTile.pickedUp())){
-            lockTiles.forEach({lock => lock.setWater()})
+            lockTiles.forEach({lock => lock.unlock()})
             puffle.redraw()
         }
     }

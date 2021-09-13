@@ -173,15 +173,22 @@ class LockTile inherits Tile {
     }
 
     override method setWater() {
-        if(game.hasVisual(self)){
+        
+        if(game.hasVisual(self) && /*puffle.hasKey()*/!locked && nivel.currentLevel().plateIsPressed()){
             game.removeVisual(self)
             const iceTile = new IceTile(position = position)
             game.addVisual(iceTile)
+            puffle.redraw()
         }
+        
+    }
+
+    method unlock() {
+        locked = false
     }
 
     method lock() {
-
+        locked = true
     }
 }
 

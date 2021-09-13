@@ -25,7 +25,7 @@ object puffle {
             colliders.forEach({tile => tile.setWater()})
             position = direction.nextPosition(position) 
         }
-        if(objectsInNextPosition.all({tile => tile.description() == "lock"}) && hasKey) {
+        if(objectsInNextPosition.all({tile => tile.description() == "lock"})) {
             const colliders = game.getObjectsIn(direction.nextPosition(position))
             colliders.forEach({tile => tile.setWater()})
         }
@@ -65,6 +65,7 @@ object puffle {
         if(_object.description() == "key") {
             game.removeVisual(_object)
             _object.pickedUp(true)
+            hasKey = true
             nivel.currentLevel().unlock()
         }
         else if(_object.description() == "bonus") {
