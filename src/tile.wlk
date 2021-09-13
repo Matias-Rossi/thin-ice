@@ -13,6 +13,12 @@ class Tile {
     method setWater() {
 
     }
+
+    method redraw() {
+        game.removeVisual(self)
+        game.addVisual(self)
+    }
+
 }
 
 class Wall {
@@ -224,6 +230,7 @@ class MoveableTile {
     }
 
     method push(direction){
+        self.redraw()
         if(game.getObjectsIn(direction.nextPosition(position)).all({tile => tile.canBeSteppedOn()})) {
             position = direction.nextPosition(position)
             game.schedule(75, {=> self.push(direction)})
@@ -235,6 +242,11 @@ class MoveableTile {
             nivel.currentLevel().unlock()
 
         }
+    }
+
+    method redraw() {
+        game.removeVisual(self)
+        game.addVisual(self)
     }
 }
 
@@ -252,12 +264,14 @@ class PlateTile inherits Tile {
 
 class PortalTile inherits Tile {
     const property canBeSteppedOn = true
-    const property description = true
     const property teleportTo
+    const property description = "portal"
 
     method image() {
-        return "./assets/sprites/Tile/moveableTile.png" //todo: fix
+        return "./assets/sprites/Tile/portal" + nivel.currentLevel().sequential() + "Tile.png" //todo: fix
     }
+
+    
 }
 
 

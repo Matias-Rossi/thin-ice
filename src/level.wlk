@@ -18,6 +18,7 @@ class Level {
     const property bonusTile
     const doesntRequirePlate
     var property plateIsPressed
+    var property sequential = 1
 
     const property nextLevel
 
@@ -27,6 +28,8 @@ class Level {
         self.doubleTiles().forEach {double => double.render()}
         self.lockTiles().forEach {lock => lock.render()}
         plateTile.render()
+        portalTileA.render()
+        portalTileB.render()
         moveableTile.render()
         self.keyTile().render()
         //self.initialTile().render()

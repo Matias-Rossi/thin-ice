@@ -33,7 +33,17 @@ object puffle {
         if(objectsInNextPosition.any({tile => tile.description() == "moveable"})) {
             const moveable = objectsInNextPosition.find({tile => tile.description() == "moveable"})
             moveable.push(direction)
+            self.move(direction)
         }
+
+        if(objectsInNextPosition.any({tile => tile.description() == "portal"})) {
+            const portal = objectsInNextPosition.find({tile => tile.description() == "portal"})
+            position = portal.teleportTo()
+        }
+
+        nivel.currentLevel().portalTileA().redraw()
+        nivel.currentLevel().portalTileB().redraw()
+        self.redraw()
         //else { hacer algun sonido} //todo:
     }
 
@@ -78,5 +88,4 @@ object puffle {
         game.removeVisual(self)
         game.addVisual(self)
     }
-    
 }

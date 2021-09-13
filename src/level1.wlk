@@ -2,7 +2,7 @@ import wollok.game.*
 import level.*
 import tile.*
 import level2.*
-import level13.*
+import level15.*
 //temp
 
 /*
@@ -69,10 +69,12 @@ const level1 = new Level(
     initialTile = new Tile(position = game.at(14, 4)),
     bonusTile = new BonusTile(position = game.at(-1,-1)),
     goalTile = new GoalTile(position = game.at(2,4)),
-    nextLevel = level13,
+    nextLevel = level15,
 
     lockTiles = [],
     keyTile = new KeyTile(position = game.at(-1, -1)),
+    //portalTileA = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
+    //portalTileB = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
     portalTileA = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
     portalTileB = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
     doesntRequirePlate = true,
