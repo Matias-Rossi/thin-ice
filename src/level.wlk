@@ -19,7 +19,6 @@ class Level {
     const property bonusTile
     const doesntRequirePlate
     var property plateIsPressed
-    var property sequential = 1
     var property sequentials = [
         new SeqTo4(value = 1),
         new SeqTo4(value = 2),

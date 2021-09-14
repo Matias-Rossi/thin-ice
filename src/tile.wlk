@@ -276,9 +276,10 @@ class PortalTile inherits Tile {
     const property canBeSteppedOn = true
     const property teleportTo
     const property description = "portal"
+    const rng = new Range(start = 0, end = 3).anyOne()
 
     method image() {
-        return "./assets/sprites/Tile/portal" + nivel.currentLevel().sequential() + "Tile.png" //todo: fix
+        return "./assets/sprites/Tile/portal" + nivel.currentLevel().sequentials().get(rng).value() + "Tile.png" //todo: fix
     }
 
     
