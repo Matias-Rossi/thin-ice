@@ -21,3 +21,10 @@ SFX: This repository contains audio files by  - [LittleRobotSoundFactory]( https
 
 Thanks [@muwella](https://github.com/muwella) for the idea.
 Thanks [@FrancoP08](https://github.com/FrancoP08) for helping with level 13.
+
+## Next steps
+
+- Implement more sounds
+- Fix file structure (once Wollok allows this)
+- Improve code quality and readability
+- Improve performance (if possible)
