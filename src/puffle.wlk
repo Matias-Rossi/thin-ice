@@ -24,25 +24,32 @@ object puffle {
             const colliders = game.getObjectsIn(position)
             colliders.forEach({tile => tile.setWater()})
             position = direction.nextPosition(position) 
+            //game.sound("./assets/audio/move.wav").play() es horrible
         }
-        if(objectsInNextPosition.all({tile => tile.description() == "lock"})) {
+
+        else if(objectsInNextPosition.all({tile => tile.description() == "lock"})) {
             //Probablemente todo esto al pedo
             const colliders = game.getObjectsIn(direction.nextPosition(position))
             colliders.forEach({tile => tile.setWater()})
         }
 
-        if(objectsInNextPosition.any({tile => tile.description() == "moveable"})) {
+        else if(objectsInNextPosition.any({tile => tile.description() == "moveable"})) {
             //Check if moveable has clear way. And yes, all this code is barely readeable...
             if(game.getObjectsIn(direction.nextPosition(direction.nextPosition(position))).all({tile => tile.canBeSteppedOn()})){ //todo: emprolijar
                 const moveable = objectsInNextPosition.find({tile => tile.description() == "moveable"})
                 moveable.push(direction)
                 self.move(direction)
+                game.sound("./assets/audio/push.wav").play()
             }
         }
 
-        if(objectsInNextPosition.any({tile => tile.description() == "portal"})) {
+        else if(objectsInNextPosition.any({tile => tile.description() == "portal"})) {
             const portal = objectsInNextPosition.find({tile => tile.description() == "portal"})
             position = portal.teleportTo()
+        }
+
+        else { //deny move
+            game.sound("./assets/audio/denyMove.wav").play()
         }
 
         nivel.currentLevel().portalTileA().redraw()
