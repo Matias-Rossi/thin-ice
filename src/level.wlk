@@ -1,6 +1,6 @@
 import wollok.game.*
 import puffle.*
-import nivel.*
+import config.*
 //import level1.*
 
 class Level {

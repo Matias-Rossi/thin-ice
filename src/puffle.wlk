@@ -1,5 +1,5 @@
 import wollok.game.*
-import nivel.*
+import config.*
 import level.*
 import direcciones.*
 import tile.*

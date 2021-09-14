@@ -1,5 +1,5 @@
 import wollok.game.*
-import nivel.*
+import config.*
 
 program iniciarJuego {
 	//configuro el juego

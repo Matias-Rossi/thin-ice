@@ -15,7 +15,6 @@ object nivel {
 
 		game.onCollideDo(puffle, {_object => puffle.completeLevel(_object)})
 		game.onCollideDo(puffle, {_object => puffle.pickObject(_object)})
-		//game.onCollideDo(puffle, {_object => puffle.activateDouble(_object)})
 		game.onTick(250, "", {=> self.updateSequential()})
 		
 	}
