@@ -6,6 +6,7 @@ import level1.*
 
 object nivel {
 	var property currentLevel = level1
+	var property carpinchoMode = false
 
 	method configuracionInicial(){
 		game.title("Thin Ice")
@@ -38,7 +39,15 @@ object nivel {
 	
 		keyboard.r().onPressDo({currentLevel.reset()})
 		keyboard.s().onPressDo({self.startOST()})
-		keyboard.c().onPressDo({puffle.alternarCarpincho()})
+		keyboard.c().onPressDo({self.alternarCarpincho()})
+	}
+
+	method alternarCarpincho() {
+		if(carpinchoMode) {
+			carpinchoMode = false
+		} else {
+			carpinchoMode = true
+		}
 	}
 
 	method startOST() {

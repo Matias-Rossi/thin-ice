@@ -28,17 +28,6 @@ class Wall {
     //const property type
 }
 
-class BackgroundTile inherits Tile {
-    const property canBeSteppedOn = false
-    const property isDouble = false
-    const property isLock = false
-
-    method image() {
-        return "./assets/sprites/Tile/backgroundTile.png"
-    }
-
-}
-
 class IceTile inherits Tile {
     const property canBeSteppedOn = true
     const property isDouble = false
@@ -48,7 +37,11 @@ class IceTile inherits Tile {
 
 
     method image() {
-        return "./assets/sprites/Tile/iceTile.png"
+        if(nivel.carpinchoMode()){
+            return "./assets/sprites/carp/iceTile.png"
+        } else {
+            return "./assets/sprites/Tile/iceTile.png"
+        }
     }
 
     override method setWater() {
@@ -97,7 +90,12 @@ class SolidTile inherits Tile {
 
 
     method image() {
-        return "./assets/sprites/Tile/solidTile.png"
+        if(nivel.carpinchoMode()){
+            return "./assets/sprites/carp/solidTile.png"
+        }
+        else {
+            return "./assets/sprites/Tile/solidTile.png"
+        }
     }
 
 }
@@ -125,9 +123,18 @@ class WaterTile inherits Tile {
     const property description = "water"
     const rng = new Range(start = 0, end = 3).anyOne()
 
+    
+
 
     method image() {
-        return "./assets/sprites/Tile/waterTile" + nivel.currentLevel().sequentials().get(rng).value() + ".png"
+
+        if(nivel.carpinchoMode()){
+            return "./assets/sprites/carp/waterTile.png"
+        }
+        else {
+            return "./assets/sprites/Tile/waterTile" + nivel.currentLevel().sequentials().get(rng).value() + ".png"
+        }
+        
     }
 
 }
@@ -139,8 +146,15 @@ class BonusTile inherits Tile {
 
 
     method image() {
-        return "./assets/sprites/specialItems/moneyBag.png"
+        if(nivel.carpinchoMode()){
+            return "./assets/sprites/carp/moneyBag.png"
+        }
+        else {
+            return "./assets/sprites/specialItems/moneyBag.png"
+        }
     }
+        
+    
 
     method pickBonus() {
         game.removeVisual(self)
@@ -156,7 +170,13 @@ class DoubleTile inherits Tile {
 
     
     method image() {
-        return "./assets/sprites/Tile/doubleTile.png"
+        if(nivel.carpinchoMode()){
+            return "./assets/sprites/carp/doubleTile.png"
+        }
+        else {
+            return "./assets/sprites/Tile/doubleTile.png"
+        }
+        
     }
 
     override method setWater() {
@@ -229,7 +249,12 @@ class MoveableTile {
 
 
     method image() {
-        return "./assets/sprites/Tile/moveableTile.png"
+        if(nivel.carpinchoMode()){
+            return "./assets/sprites/carp/moveableTile.png"
+        }
+        else {
+            return "./assets/sprites/Tile/moveableTile.png"
+        }
     }
 
     method push(direction){
@@ -267,7 +292,13 @@ class PlateTile inherits Tile {
 
 
     method image() {
-        return "./assets/sprites/Tile/pressurePlate.png"
+        if(nivel.carpinchoMode()){
+            return "./assets/sprites/carp/pressurePlate.png"
+        }
+        else {
+            return "./assets/sprites/Tile/pressurePlate.png"
+            
+        }
     }
 
 }

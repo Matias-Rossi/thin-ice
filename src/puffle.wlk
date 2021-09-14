@@ -6,11 +6,10 @@ import tile.*
 
 object puffle {
     var property position = game.at(14,4) //nivel().initialTile() /*todo: implementar posicion inicial*/
-    var property useCarpincho = false
     var property hasKey = false
 
     method image() {
-        if(!useCarpincho){
+        if(!nivel.carpinchoMode()){
             return "./assets/sprites/specialItems/puff.png"
         } else {
             return "./assets/sprites/specialItems/carpincho.png"
@@ -25,6 +24,10 @@ object puffle {
             colliders.forEach({tile => tile.setWater()})
             position = direction.nextPosition(position) 
             //game.sound("./assets/audio/move.wav").play() es horrible
+            if(objectsInNextPosition.any({tile => tile.description() == "portal"})) {
+                const portal = objectsInNextPosition.find({tile => tile.description() == "portal"})
+                position = portal.teleportTo()
+            }
         }
 
         else if(objectsInNextPosition.all({tile => tile.description() == "lock"})) {
@@ -43,10 +46,6 @@ object puffle {
             }
         }
 
-        else if(objectsInNextPosition.any({tile => tile.description() == "portal"})) {
-            const portal = objectsInNextPosition.find({tile => tile.description() == "portal"})
-            position = portal.teleportTo()
-        }
 
         else { //deny move
             game.sound("./assets/audio/denyMove.wav").play()
@@ -56,14 +55,6 @@ object puffle {
         nivel.currentLevel().portalTileB().redraw()
         self.redraw()
         //else { hacer algun sonido} //todo:
-    }
-
-    method alternarCarpincho() {
-        if(useCarpincho) {
-            useCarpincho = false
-        } else {
-            useCarpincho = true
-        }
     }
 
     method setWater() {}
