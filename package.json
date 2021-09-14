@@ -1,7 +1,7 @@
 {
-  "name": "thin-ice",
+  "name": "thin_ice_eclipse",
   "version": "1.0.0",
   "wollokVersion": "3.0.0",
-  "author": "Matias-Rossi",
+  "author": "matias",
   "license": "ISC"
 }
