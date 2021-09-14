@@ -27,4 +27,4 @@ Thanks [@FrancoP08](https://github.com/FrancoP08) for helping with level 13.
 - Implement more sounds
 - Fix file structure (once Wollok allows this)
 - Improve code quality and readability
-- Improve performance (if possible)
+- Improve performance (if possible) -> Java process used up to 600MB
