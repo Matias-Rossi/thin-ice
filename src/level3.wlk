@@ -111,11 +111,11 @@ const level3 = new Level(
     ],
     doubleTiles = [],
     initialTile = new Tile(position = game.at(14, 7)),
-    bonusTile = new BonusTile(position = game.at(-1,-1)),
     goalTile = new GoalTile(position = game.at(3,7)),
     nextLevel = level4,
 
     //Unused
+    bonusTile = new BonusTile(position = game.at(-1,-1)),
     lockTiles = [],
     keyTile = new KeyTile(position = game.at(-1, -1)),
     moveableTile = new MoveableTile(initialPos = game.at(-1, -1)),

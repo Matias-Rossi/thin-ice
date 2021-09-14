@@ -26,6 +26,7 @@ object puffle {
             position = direction.nextPosition(position) 
         }
         if(objectsInNextPosition.all({tile => tile.description() == "lock"})) {
+            //Probablemente todo esto al pedo
             const colliders = game.getObjectsIn(direction.nextPosition(position))
             colliders.forEach({tile => tile.setWater()})
         }
@@ -64,6 +65,7 @@ object puffle {
         if(position == nivel.currentLevel().goalTile().position()) {
             nivel.currentLevel(nivel.currentLevel().nextLevel())
             nivel.currentLevel().reset()
+            game.sound("./assets/audio/nextLevel.wav").play()
         }
     }
 

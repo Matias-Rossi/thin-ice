@@ -42,6 +42,7 @@ class Level {
         game.clear()
         nivel.configuracionInicial()
         puffle.position(initialTile.position())
+        nivel.currentLevel().relock()
         keyTile.pickedUp(false)
         plateIsPressed = doesntRequirePlate
     }
@@ -51,6 +52,11 @@ class Level {
             lockTiles.forEach({lock => lock.unlock()})
             puffle.redraw()
         }
+    }
+
+    method relock() {
+        keyTile.pickedUp(false)
+        lockTiles.forEach({lock => lock.lock()})
     }
 
     //todo: implementar backgroundTiles donde no haya de otro tipo. Podría ser un PNG de background que tome toda la página

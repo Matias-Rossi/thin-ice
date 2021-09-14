@@ -21,12 +21,12 @@ object nivel {
 	}
 
 	method updateSequential() {
-			const value = currentLevel.sequential()
-			if(value < 4) {
-				currentLevel.sequential(value + 1)
-			} else {
-				currentLevel.sequential(1)
-			}
+		const value = currentLevel.sequential()
+		if(value < 4) {
+			currentLevel.sequential(value + 1)
+		} else {
+			currentLevel.sequential(1)
+		}
 	}
 	
 	method configurarTeclas(){

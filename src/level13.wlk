@@ -297,11 +297,11 @@ const level13 = new Level (
     initialTile = new Tile(position = game.at(15, 3)),
     bonusTile = new BonusTile(position = game.at(9, 7)),
     goalTile = new GoalTile(position = game.at(7, 3)),
+    moveableTile = new MoveableTile(initialPos = game.at(5, 5)),
+    plateTile = new PlateTile(position = game.at(5, 9)),
     nextLevel = level14,
 
     //unused
-    moveableTile = new MoveableTile(initialPos = game.at(5, 5)),
-    plateTile = new PlateTile(position = game.at(5, 9)),
     portalTileA = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
     portalTileB = new PortalTile(position = game.at(-1, -1), teleportTo = game.at(-1,-1)),
     doesntRequirePlate = false,

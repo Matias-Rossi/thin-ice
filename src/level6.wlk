@@ -118,13 +118,13 @@ const level6 = new Level(
         new IceTile(position = game.at(16, 5))
         
     ],
-    doubleTiles = [],
     initialTile = new Tile(position = game.at(2, 4)),
     bonusTile = new BonusTile(position = game.at(10, 3)),
     goalTile = new GoalTile(position = game.at(14, 7)),
     nextLevel = level7,
 
     //Unused
+    doubleTiles = [],
     lockTiles = [],
     keyTile = new KeyTile(position = game.at(-1, -1)),
     moveableTile = new MoveableTile(initialPos = game.at(-1, -1)),

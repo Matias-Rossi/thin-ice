@@ -185,6 +185,7 @@ class LockTile inherits Tile {
             game.removeVisual(self)
             const iceTile = new IceTile(position = position)
             game.addVisual(iceTile)
+            //game.sound("./assets/audio/unlock.wav").play() //todo: fix bug
             puffle.redraw()
         }
         
