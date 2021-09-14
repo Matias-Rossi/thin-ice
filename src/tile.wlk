@@ -47,7 +47,9 @@ class IceTile inherits Tile {
     override method setWater() {
         game.removeVisual(self)
         game.addVisual(new WaterTile(position = game.at(position.x(), position.y())))
-        new MeltingTile(position = position).melt()
+        if (!nivel.carpinchoMode()){
+            new MeltingTile(position = position).melt()
+        }
     }
 
 
