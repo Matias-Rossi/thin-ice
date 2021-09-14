@@ -123,10 +123,11 @@ class SolidWall inherits Wall {
 class WaterTile inherits Tile {
     const property canBeSteppedOn = false
     const property description = "water"
+    const rng = new Range(start = 0, end = 3).anyOne()
 
 
     method image() {
-        return "./assets/sprites/Tile/waterTile.png"
+        return "./assets/sprites/Tile/waterTile" + nivel.currentLevel().sequentials().get(rng).value() + ".png"
     }
 
 }

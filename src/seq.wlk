@@ -1,5 +1,5 @@
 class SeqTo4 {
-    var property value = 1.randomUpTo(4)
+    var property value 
 
     method updateValue() {
         if(value < 4) {
@@ -8,4 +8,8 @@ class SeqTo4 {
             value = 1
         }
 	}
+
+    method setRandom() {
+        value = 1.randomUpTo(4)
+    }
 }

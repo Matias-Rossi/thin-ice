@@ -16,6 +16,7 @@ object nivel {
 		game.onCollideDo(puffle, {_object => puffle.completeLevel(_object)})
 		game.onCollideDo(puffle, {_object => puffle.pickObject(_object)})
 		game.onTick(250, "", {=> self.updateSequential()})
+		game.onTick(250, "Update Sequentials", {=> self.updateSequentials()})
 		
 	}
 
@@ -26,6 +27,16 @@ object nivel {
 		} else {
 			currentLevel.sequential(1)
 		}
+	}
+
+	method updateSequentials() {
+		currentLevel.sequentials().forEach({seq => 
+			if(seq.value() < 4) {
+				seq.value(seq.value() + 1)
+			} else {
+				seq.value(1)
+			}
+		})
 	}
 	
 	method configurarTeclas(){

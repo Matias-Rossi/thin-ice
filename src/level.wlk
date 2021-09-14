@@ -1,6 +1,7 @@
 import wollok.game.*
 import puffle.*
 import config.*
+import seq.*
 //import level1.*
 
 class Level {
@@ -19,6 +20,12 @@ class Level {
     const doesntRequirePlate
     var property plateIsPressed
     var property sequential = 1
+    var property sequentials = [
+        new SeqTo4(value = 1),
+        new SeqTo4(value = 2),
+        new SeqTo4(value = 3),
+        new SeqTo4(value = 4)
+    ]
 
     const property nextLevel
 
