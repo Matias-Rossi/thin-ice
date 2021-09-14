@@ -2,7 +2,7 @@
 import wollok.game.*
 import level.*
 import tile.*
-import level1.* 
+import level19.* 
 //temp
 
 const level18 = new Level(
@@ -226,6 +226,6 @@ const level18 = new Level(
     plateIsPressed = false,
     portalTileA = new PortalTile(position = game.at(7, 10), teleportTo = game.at(15, 12)),
     portalTileB = new PortalTile(position = game.at(15, 12), teleportTo = game.at(7, 10)),
-    nextLevel = level1
+    nextLevel = level19
 )
 
