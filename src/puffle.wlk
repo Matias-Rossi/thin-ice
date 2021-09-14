@@ -80,6 +80,8 @@ object puffle {
             _object.pickedUp(true)
             hasKey = true
             nivel.currentLevel().unlock()
+            game.sound("./assets/audio/keyPickUp.wav").play()
+            
         }
         else if(_object.description() == "bonus") {
             _object.pickBonus()

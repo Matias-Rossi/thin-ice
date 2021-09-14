@@ -17,4 +17,6 @@ DISCLAIMER: This content was not coded by, drawn by, sponsored by, or affiliated
 
 Song taken from [here](https://soundcloud.com/user-212290014/club-penguin-rewritten-music-ost-thin-ice)
 
+SFX: This repository contains audio files by  - [LittleRobotSoundFactory]( https://freesound.org/people/LittleRobotSoundFactory/), used under [Creative Commons 3.0 license](http://creativecommons.org/licenses/by/3.0/)
+
 Thanks [@muwella](https://github.com/muwella) for the idea.

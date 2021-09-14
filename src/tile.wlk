@@ -143,6 +143,7 @@ class BonusTile inherits Tile {
 
     method pickBonus() {
         game.removeVisual(self)
+        game.sound("./assets/audio/bonusPickUp.wav").play()
         //todo: implementar bonus (puntos)
 
     }
