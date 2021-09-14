@@ -3,10 +3,13 @@
 ## What's this?
 
 This is a remake of Club Penguin's arcade game "Thin Ice" made in Wollok Game. [Click here](https://www.wollok.org/) to learn more about Wollok.
+It was really fun doing this project. Initially, I thought I would make just the first levels, and just in a basic form. After completing those, I felt I could do more, but I came across the big challenge of special tiles, such as the lock, the tile you can go through twice, the moveable block, and the portal. After completing each, I thought "ok, this is it, no way I can continue", but I did, and in the end, I was happy with the result. Animations and the Capybara mode were also later additions, which I enjoyed developing and debugging.
+I know the code is really messy, as this is the first project I coded using Wollok, but nonetheless I wanted to share it.
 
 ## How to play it?
 
 To run the game, you will need to have the [Wollok IDE](https://www.wollok.org/instalacion/) or the [Wollok CLI](https://github.com/uqbar-project/wollok-cli) installed. Simply run the project and the game will start. To move use the arrow keys. Press 'S' to start the original game song (Will be removed if requested). Press 'C' to replace your Puffle for a lovely Carpincho (Capybara). Lastly, press 'F' to skip the current level.
+
 
 ## Important information
 
