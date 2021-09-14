@@ -10,7 +10,8 @@ object puffle {
 
     method image() {
         if(!nivel.carpinchoMode()){
-            return "./assets/sprites/specialItems/puff.png"
+            return "./assets/sprites/specialItems/puff" + nivel.currentLevel().sequentials().get(2).value() + ".png"
+
         } else {
             return "./assets/sprites/specialItems/carpincho.png"
         }
