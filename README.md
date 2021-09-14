@@ -3,6 +3,7 @@
 ## What's this?
 
 This is a remake of Club Penguin's arcade game "Thin Ice" made in Wollok Game. [Click here](https://www.wollok.org/) to learn more about Wollok.
+The goal of the game is to complete all levels going over as much tiles as possible, ideally leaving no ice.
 
 ## How to play it?
 
@@ -28,3 +29,4 @@ Thanks [@FrancoP08](https://github.com/FrancoP08) for helping with level 13.
 - Fix file structure (once Wollok allows this)
 - Improve code quality and readability
 - Improve performance (if possible)
+- Implement points system
