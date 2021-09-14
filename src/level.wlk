@@ -23,18 +23,17 @@ class Level {
     const property nextLevel
 
     method generateLevel() {
-        self.iceTiles().forEach {ice => ice.render()}
-        self.solidTiles().forEach {solid => solid.render()} //se podria hacer solidTiles.forEach (etc) ?
-        self.doubleTiles().forEach {double => double.render()}
-        self.lockTiles().forEach {lock => lock.render()}
+        iceTiles.forEach {ice => ice.render()}
+        solidTiles.forEach {solid => solid.render()} //se podria hacer solidTiles.forEach (etc) ?
+        doubleTiles.forEach {double => double.render()}
+        lockTiles.forEach {lock => lock.render()}
         plateTile.render()
         portalTileA.render()
         portalTileB.render()
         moveableTile.render()
-        self.keyTile().render()
-        //self.initialTile().render()
-        self.bonusTile().render()
-        self.goalTile().render()
+        keyTile.render()
+        bonusTile.render()
+        goalTile.render()
         game.addVisual(puffle)
     }
 
