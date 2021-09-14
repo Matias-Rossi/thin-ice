@@ -47,7 +47,9 @@ class IceTile inherits Tile {
     override method setWater() {
         game.removeVisual(self)
         game.addVisual(new WaterTile(position = game.at(position.x(), position.y())))
+        new MeltingTile(position = position).melt()
     }
+
 
 }
 
@@ -311,6 +313,22 @@ class PortalTile inherits Tile {
 
     method image() {
         return "./assets/sprites/Tile/portal" + nivel.currentLevel().sequentials().get(rng).value() + "Tile.png" //todo: fix
+    }
+
+    
+}
+
+class MeltingTile inherits Tile {
+    const property canBeSteppedOn = false
+    const property description = "melting"
+    var property image = "./assets/sprites/Tile/melting1Tile.png"
+
+    method melt() {
+        game.addVisual(self)
+        image = "./assets/sprites/Tile/melting1Tile.png"
+        game.schedule(50, {=> image = "./assets/sprites/Tile/melting2Tile.png"})
+        game.schedule(100, {=> image = "./assets/sprites/Tile/melting3Tile.png"})
+        game.schedule(150, {=> game.removeVisual(self)})
     }
 
     
