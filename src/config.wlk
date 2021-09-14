@@ -40,6 +40,7 @@ object nivel {
 		keyboard.r().onPressDo({currentLevel.reset()})
 		keyboard.s().onPressDo({self.startOST()})
 		keyboard.c().onPressDo({self.alternarCarpincho()})
+		keyboard.f().onPressDo({self.skipLevel()})
 	}
 
 	method alternarCarpincho() {
@@ -56,6 +57,11 @@ object nivel {
 		soundtrack.play()
 		soundtrack.shouldLoop(true)
 		
+	}
+
+	method skipLevel() {
+		currentLevel = currentLevel.nextLevel()
+        currentLevel.reset()
 	}
 	
 }
