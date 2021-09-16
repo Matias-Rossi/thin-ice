@@ -5,7 +5,7 @@ import direcciones.*
 import tile.*
 
 object puffle {
-    var property position = game.at(14,4) //nivel().initialTile() /*todo: implementar posicion inicial*/
+    var property position = game.at(14,4)
     var property hasKey = false
 
     method image() {
@@ -20,19 +20,22 @@ object puffle {
     method move(direction) {
         const objectsInNextPosition = game.getObjectsIn(direction.nextPosition(position))
 
+        //Check if the tile is free
         if(objectsInNextPosition.all({tile => tile.canBeSteppedOn()})){
             const colliders = game.getObjectsIn(position)
             colliders.forEach({tile => tile.setWater()})
             position = direction.nextPosition(position) 
             //game.sound("./assets/audio/move.wav").play() es horrible
+
+            //Teleport if the tile is a portal
             if(objectsInNextPosition.any({tile => tile.description() == "portal"})) {
                 const portal = objectsInNextPosition.find({tile => tile.description() == "portal"})
                 position = portal.teleportTo()
             }
         }
 
+        //Open lock
         else if(objectsInNextPosition.all({tile => tile.description() == "lock"})) {
-            //Probablemente todo esto al pedo
             const colliders = game.getObjectsIn(direction.nextPosition(position))
             colliders.forEach({tile => tile.setWater()})
         }
@@ -52,15 +55,15 @@ object puffle {
             game.sound("./assets/audio/denyMove.wav").play()
         }
 
+        //Redraw is made to avoid layer overlapping issues
         levelManager.currentLevel().portalTileA().redraw()
         levelManager.currentLevel().portalTileB().redraw()
         self.redraw()
-        //else { hacer algun sonido} //todo:
     }
 
     method setWater() {}
 
-    method completeLevel(_objeto) {
+    method completeLevel(_) {
         if(position == levelManager.currentLevel().goalTile().position()) {
             levelManager.currentLevel(levelManager.currentLevel().nextLevel())
             levelManager.currentLevel().reset()
