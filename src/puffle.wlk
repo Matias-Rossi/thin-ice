@@ -6,7 +6,6 @@ import tile.*
 
 object puffle {
     var property position = game.at(14,4)
-    var property hasKey = false
 
     method image() {
         if(!levelManager.carpinchoMode()){
@@ -82,7 +81,6 @@ object puffle {
         if(_object.description() == "key") {
             game.removeVisual(_object)
             _object.pickedUp(true)
-            hasKey = true
             levelManager.currentLevel().unlock()
             game.sound("./assets/audio/keyPickUp.wav").play()
             
