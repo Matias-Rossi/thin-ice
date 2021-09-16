@@ -37,7 +37,7 @@ class IceTile inherits Tile {
 
 
     method image() {
-        if(nivel.carpinchoMode()){
+        if(levelManager.carpinchoMode()){
             return "./assets/sprites/carp/iceTile.png"
         } else {
             return "./assets/sprites/Tile/iceTile.png"
@@ -47,7 +47,7 @@ class IceTile inherits Tile {
     override method setWater() {
         game.removeVisual(self)
         game.addVisual(new WaterTile(position = game.at(position.x(), position.y())))
-        if (!nivel.carpinchoMode()){
+        if (!levelManager.carpinchoMode()){
             new MeltingTile(position = position).melt()
         }
     }
@@ -94,7 +94,7 @@ class SolidTile inherits Tile {
 
 
     method image() {
-        if(nivel.carpinchoMode()){
+        if(levelManager.carpinchoMode()){
             return "./assets/sprites/carp/solidTile.png"
         }
         else {
@@ -132,11 +132,11 @@ class WaterTile inherits Tile {
 
     method image() {
 
-        if(nivel.carpinchoMode()){
+        if(levelManager.carpinchoMode()){
             return "./assets/sprites/carp/waterTile.png"
         }
         else {
-            return "./assets/sprites/Tile/waterTile" + nivel.currentLevel().sequentials().get(rng).value() + ".png"
+            return "./assets/sprites/Tile/waterTile" + levelManager.currentLevel().sequentials().get(rng).value() + ".png"
         }
         
     }
@@ -150,7 +150,7 @@ class BonusTile inherits Tile {
 
 
     method image() {
-        if(nivel.carpinchoMode()){
+        if(levelManager.carpinchoMode()){
             return "./assets/sprites/carp/moneyBag.png"
         }
         else {
@@ -174,7 +174,7 @@ class DoubleTile inherits Tile {
 
     
     method image() {
-        if(nivel.carpinchoMode()){
+        if(levelManager.carpinchoMode()){
             return "./assets/sprites/carp/doubleTile.png"
         }
         else {
@@ -206,7 +206,7 @@ class LockTile inherits Tile {
 
     override method setWater() {
         
-        if(game.hasVisual(self) && /*puffle.hasKey()*/!locked && nivel.currentLevel().plateIsPressed()){
+        if(game.hasVisual(self) && /*puffle.hasKey()*/!locked && levelManager.currentLevel().plateIsPressed()){
             game.removeVisual(self)
             const iceTile = new IceTile(position = position)
             game.addVisual(iceTile)
@@ -231,7 +231,7 @@ class KeyTile inherits Tile {
     const property description = "key"
     
     method image() {
-        return "./assets/sprites/specialItems/key" + nivel.currentLevel().sequentials().get(1).value() + ".png"
+        return "./assets/sprites/specialItems/key" + levelManager.currentLevel().sequentials().get(1).value() + ".png"
     }
 }
 
@@ -253,7 +253,7 @@ class MoveableTile {
 
 
     method image() {
-        if(nivel.carpinchoMode()){
+        if(levelManager.carpinchoMode()){
             return "./assets/sprites/carp/moveableTile.png"
         }
         else {
@@ -278,8 +278,8 @@ class MoveableTile {
 
         if(game.getObjectsIn(position).any({_object => _object.description() == "plate"})) {
             game.getObjectsIn(position).find({_object => _object.description() == "plate"}).active(true)
-            nivel.currentLevel().plateIsPressed(true)
-            nivel.currentLevel().unlock()
+            levelManager.currentLevel().plateIsPressed(true)
+            levelManager.currentLevel().unlock()
         }
     }
 
@@ -296,7 +296,7 @@ class PlateTile inherits Tile {
 
 
     method image() {
-        if(nivel.carpinchoMode()){
+        if(levelManager.carpinchoMode()){
             return "./assets/sprites/carp/pressurePlate.png"
         }
         else {
@@ -314,7 +314,7 @@ class PortalTile inherits Tile {
     const rng = new Range(start = 0, end = 3).anyOne()
 
     method image() {
-        return "./assets/sprites/Tile/portal" + nivel.currentLevel().sequentials().get(rng).value() + "Tile.png" //todo: fix
+        return "./assets/sprites/Tile/portal" + levelManager.currentLevel().sequentials().get(rng).value() + "Tile.png" //todo: fix
     }
 
     

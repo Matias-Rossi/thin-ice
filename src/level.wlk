@@ -5,18 +5,18 @@ import seq.*
 //import level1.*
 
 class Level {
-    const property solidTiles
-    const property iceTiles
-    const property doubleTiles
-    const property lockTiles 
-    const property keyTile
-    const property moveableTile
-    const property plateTile
+    const solidTiles
+    const iceTiles
+    const doubleTiles
+    const lockTiles 
+    const keyTile
+    const moveableTile
+    const  plateTile
     const property portalTileA
     const property portalTileB
     const property initialTile
     const property goalTile
-    const property bonusTile
+    const bonusTile
     const doesntRequirePlate
     var property plateIsPressed
     var property sequentials = [
@@ -30,7 +30,7 @@ class Level {
 
     method generateLevel() {
         iceTiles.forEach {ice => ice.render()}
-        solidTiles.forEach {solid => solid.render()} //se podria hacer solidTiles.forEach (etc) ?
+        solidTiles.forEach {solid => solid.render()}
         doubleTiles.forEach {double => double.render()}
         lockTiles.forEach {lock => lock.render()}
         plateTile.render()
@@ -45,9 +45,9 @@ class Level {
 
     method reset() {
         game.clear()
-        nivel.configuracionInicial()
+        levelManager.configuracionInicial()
         puffle.position(initialTile.position())
-        nivel.currentLevel().relock()
+        levelManager.currentLevel().relock()
         keyTile.pickedUp(false)
         plateIsPressed = doesntRequirePlate
     }

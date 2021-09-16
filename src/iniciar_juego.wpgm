@@ -11,10 +11,10 @@ program iniciarJuego {
 	game.boardGround("./assets/sprites/Tile/backgroundFull.png")
 
 	
-	nivel.configuracionInicial()
+	levelManager.configuracionInicial()
 	
 	//inicio el juego
 	game.start()
-	game.schedule(0,{ => nivel.startOST()})
+	game.schedule(0,{ => levelManager.startOST()})
 
 }

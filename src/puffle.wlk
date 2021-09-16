@@ -9,8 +9,8 @@ object puffle {
     var property hasKey = false
 
     method image() {
-        if(!nivel.carpinchoMode()){
-            return "./assets/sprites/specialItems/puff" + nivel.currentLevel().sequentials().get(2).value() + ".png"
+        if(!levelManager.carpinchoMode()){
+            return "./assets/sprites/specialItems/puff" + levelManager.currentLevel().sequentials().get(2).value() + ".png"
 
         } else {
             return "./assets/sprites/specialItems/carpincho.png"
@@ -52,8 +52,8 @@ object puffle {
             game.sound("./assets/audio/denyMove.wav").play()
         }
 
-        nivel.currentLevel().portalTileA().redraw()
-        nivel.currentLevel().portalTileB().redraw()
+        levelManager.currentLevel().portalTileA().redraw()
+        levelManager.currentLevel().portalTileB().redraw()
         self.redraw()
         //else { hacer algun sonido} //todo:
     }
@@ -61,9 +61,9 @@ object puffle {
     method setWater() {}
 
     method completeLevel(_objeto) {
-        if(position == nivel.currentLevel().goalTile().position()) {
-            nivel.currentLevel(nivel.currentLevel().nextLevel())
-            nivel.currentLevel().reset()
+        if(position == levelManager.currentLevel().goalTile().position()) {
+            levelManager.currentLevel(levelManager.currentLevel().nextLevel())
+            levelManager.currentLevel().reset()
             game.sound("./assets/audio/nextLevel.wav").play()
         }
     }
@@ -80,7 +80,7 @@ object puffle {
             game.removeVisual(_object)
             _object.pickedUp(true)
             hasKey = true
-            nivel.currentLevel().unlock()
+            levelManager.currentLevel().unlock()
             game.sound("./assets/audio/keyPickUp.wav").play()
             
         }

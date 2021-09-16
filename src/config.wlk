@@ -4,14 +4,14 @@ import direcciones.*
 import level.*
 import level1.*
 
-object nivel {
+object levelManager {
 	var property currentLevel = level1
 	var property carpinchoMode = false
 
 	method configuracionInicial(){
 		game.title("Thin Ice")
 		currentLevel.generateLevel()
-		self.configurarTeclas()
+		self.setUpControls()
 
 
 		game.onCollideDo(puffle, {_object => puffle.completeLevel(_object)})
@@ -31,7 +31,7 @@ object nivel {
 		})
 	}
 	
-	method configurarTeclas(){
+	method setUpControls(){
 		keyboard.left().onPressDo({ puffle.move(left) })
 		keyboard.right().onPressDo({ puffle.move(right) })
 		keyboard.up().onPressDo({ puffle.move(up) })
@@ -39,11 +39,11 @@ object nivel {
 	
 		keyboard.r().onPressDo({currentLevel.reset()})
 		keyboard.s().onPressDo({self.startOST()})
-		keyboard.c().onPressDo({self.alternarCarpincho()})
+		keyboard.c().onPressDo({self.carpinchoModeAlternate()})
 		keyboard.f().onPressDo({self.skipLevel()})
 	}
 
-	method alternarCarpincho() {
+	method carpinchoModeAlternate() {
 		if(carpinchoMode) {
 			carpinchoMode = false
 		} else {
