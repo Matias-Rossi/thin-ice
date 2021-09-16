@@ -4,7 +4,6 @@ import config.*
 
 class Tile {
     const property position
-    const property isTile = true
 
     method render() {
         game.addVisual(self)
@@ -24,14 +23,11 @@ class Tile {
 class Wall {
     const property start
     const property end
-    const property orientation  //Se podría hacer analizar automáticamente, en vez de tener que ponerlo como entrada
-    //const property type
+    const property orientation  //Could be done automatically or even be removed and make the render method fill in both axis ¯\_(ツ)_/¯
 }
 
 class IceTile inherits Tile {
     const property canBeSteppedOn = true
-    const property isDouble = false
-    const property isLock = false
 
     const property description = "ice"
 
@@ -76,8 +72,6 @@ class IceWall inherits Wall {
 
 class GoalTile inherits Tile {
     const property canBeSteppedOn = true
-    const property isDouble = false
-    const property isLock = false
     const property description = "goal"
 
 
@@ -88,8 +82,6 @@ class GoalTile inherits Tile {
 
 class SolidTile inherits Tile {
     const property canBeSteppedOn = false
-    const property isDouble = false
-    const property isLock = false
     const property description = "solid"
 
 
@@ -238,18 +230,15 @@ class KeyTile inherits Tile {
 class MoveableTile {
     const property canBeSteppedOn = false
     const property description = "moveable"
-    const property initialPos
+    const initialPos
     var property position = initialPos
-    const property isTile = true
 
     method render() {
         position = initialPos
         game.addVisual(self)
     }
 
-    method setWater() {
-
-    }
+    method setWater() {}
 
 
     method image() {
