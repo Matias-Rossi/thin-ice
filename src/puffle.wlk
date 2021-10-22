@@ -40,8 +40,12 @@ object puffle {
         }
 
         else if(objectsInNextPosition.any({tile => tile.description() == "moveable"})) {
-            //Check if moveable has clear way. And yes, all this code is barely readeable...
-            if(game.getObjectsIn(direction.nextPosition(direction.nextPosition(position))).all({tile => tile.canBeSteppedOn()})){ //todo: emprolijar
+
+            
+            const objectsInNextPosition = game.getObjectsIn(direction.nextPosition(position))
+
+            //Check if tile next to moveable box is clear
+            if(objectsInNextPosition.all({tile => tile.canBeSteppedOn()})) {
                 const moveable = objectsInNextPosition.find({tile => tile.description() == "moveable"})
                 moveable.push(direction)
                 self.move(direction)

@@ -187,7 +187,7 @@ class DoubleTile inherits Tile {
 
 class LockTile inherits Tile {
     const property canBeSteppedOn = false
-    var property locked = true  //potentially unused
+    var property locked = true 
     const property description = "lock"
 
 

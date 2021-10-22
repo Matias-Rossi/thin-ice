@@ -1,3 +1,4 @@
+// Class of sequential objects which counter can be incremented to 4 before being reset to 0
 class SeqTo4 {
     var property value 
 
