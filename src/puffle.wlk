@@ -42,11 +42,11 @@ object puffle {
         else if(objectsInNextPosition.any({tile => tile.description() == "moveable"})) {
 
             
-            const objectsInNextPosition = game.getObjectsIn(direction.nextPosition(position))
+            const objectsInNextPosition = game.getObjectsIn(direction.nextPosition(direction.nextPosition(position)))
 
             //Check if tile next to moveable box is clear
             if(objectsInNextPosition.all({tile => tile.canBeSteppedOn()})) {
-                const moveable = objectsInNextPosition.find({tile => tile.description() == "moveable"})
+                const moveable = game.getObjectsIn(direction.nextPosition(position)).find({tile => tile.description() == "moveable"})
                 moveable.push(direction)
                 self.move(direction)
                 game.sound("./assets/audio/push.wav").play()
