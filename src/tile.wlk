@@ -327,6 +327,6 @@ class MeltingTile inherits Tile {
 
 
 class Coordinates {
-	var property x;
-	var property y;	
+    var property x
+    var property y	
 }
